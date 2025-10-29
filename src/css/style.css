@@ -1,0 +1,642 @@
+/* Paleta de Cores: #d94a61 (Vermelho Suave), #ffe4e1 (Branco Rosado), #4a4a4a (Cinza Escuro) */
+
+/* ------------------------------------------- */
+/* BODY E EFEITO DE FUNDO (Corações Flutuantes) */
+/* ------------------------------------------- */
+body {
+    font-family: 'Georgia', serif;
+    /* Gradiente de fundo sutil para um toque romântico */
+    background: linear-gradient(135deg, #ffe4e1 0%, #f08080 100%); 
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0; 
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Efeito dos corações flutuantes no background (Usado pelo script.js) */
+.heart-bg {
+    position: absolute;
+    pointer-events: none; 
+    animation: floatHeart linear infinite;
+    transform: rotate(-45deg);
+    background-color: #d94a61;
+    border-radius: 50%;
+    /* Adiciona um efeito de borrão suave para parecer mais etéreo */
+    filter: blur(1px); 
+    box-shadow: 0 0 5px rgba(217, 74, 97, 0.5); 
+}
+
+.heart-bg::before,
+.heart-bg::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-bg::before { top: -50%; left: 0; }
+.heart-bg::after { left: 50%; top: 0; }
+
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) rotate(45deg) scale(0.5); opacity: 0; }
+    50% { opacity: 0.15; }
+    100% { transform: translateY(-10vh) rotate(45deg) scale(1); opacity: 0; }
+}
+
+/* CONTAINER PRINCIPAL DO SITE (Aparência de Livro/Carta) */
+.site-container {
+    max-width: 900px;
+    margin: 40px auto; 
+    background-color: #fff; /* Fundo branco puro para destaque */
+    border-radius: 20px;
+    /* Sombra mais profunda para efeito 3D */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35); 
+    overflow: hidden;
+    padding-bottom: 30px;
+    display: none; 
+    position: relative;
+    z-index: 10;
+}
+
+/* ------------------------------------------- */
+/* SURPRESA INICIAL (OVERLAY) */
+/* ------------------------------------------- */
+
+#overlay-surprise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente vibrante para o clique inicial */
+    background: radial-gradient(circle at center, #ff7e5f, #d94a61); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.5s ease-out;
+}
+
+.heart-button {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Pulsação do botão para convidar o clique */
+    animation: pulse 1.5s infinite;
+}
+
+.heart-button p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.heart-icon {
+    width: 120px;
+    height: 108px;
+    background-color: #fff;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+/* Estilização padrão do coração */
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    width: 120px;
+    height: 108px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-icon::before { top: -60px; left: 0; }
+.heart-icon::after { left: 60px; top: 0; }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* ------------------------------------------- */
+/* HEADER E CONTADOR (Design de Cartões Premium) */
+/* ------------------------------------------- */
+
+.romantic-header {
+    /* Gradiente elegante no header */
+    background: linear-gradient(to right, #d94a61, #8b0000); 
+    color: #fff;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.romantic-header h1 { font-size: 3.5em; margin-bottom: 5px; }
+.romantic-header h2 { font-size: 1.3em; font-style: italic; font-weight: 300; margin-top: 0; }
+
+.destaque-area {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-destaque {
+    width: 100%;
+    max-width: 380px; 
+    height: auto;
+    border-radius: 10px; 
+    /* Borda elegante na foto de destaque */
+    border: 8px solid #fce4ec; 
+    box-shadow: 0 0 30px rgba(217, 74, 97, 0.7); 
+    margin-bottom: 30px;
+    object-fit: cover; 
+    max-height: 450px;
+}
+
+.contador-tempo {
+    background-color: #fff0f5; 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 550px;
+    margin-top: 10px;
+}
+
+.contador-grid {
+    display: flex;
+    justify-content: space-between; 
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contador-item {
+    flex: 1; 
+    /* Gradiente sutil nos cartões do contador */
+    background: linear-gradient(145deg, #ffe8e8, #fcdada); 
+    padding: 18px 5px;
+    border-radius: 12px;
+    /* Sombra interna para profundidade */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #f08080;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contador-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(217, 74, 97, 0.5);
+}
+
+.contador-tempo .numero {
+    display: block;
+    font-size: 3.2em; 
+    font-family: 'Arial', sans-serif; 
+    font-weight: 800;
+    color: #d94a61; 
+    line-height: 1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.contador-tempo .unidade {
+    display: block;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #4a4a4a;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+
+/* ------------------------------------------- */
+/* TABS (ABAS) */
+/* ------------------------------------------- */
+.tabs-container {
+    padding: 0 20px;
+}
+
+.tabs-buttons {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #f08080; 
+    background-color: #ffe4e1; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px;
+    margin-top: -15px; 
+    padding-top: 15px; 
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-link {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: #8b0000;
+    transition: all 0.3s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tab-link:hover {
+    background-color: #fce4ec;
+}
+
+.tab-link.active {
+    background-color: #fff;
+    border-bottom: 4px solid #d94a61;
+    color: #8b0000;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+    padding: 30px;
+    text-align: left;
+    background-color: #fff; 
+    border-radius: 0 0 15px 15px; 
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
+}
+
+.tab-content h2 {
+    color: #d94a61;
+    border-bottom: 1px dashed #f08080;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* ESTILO: CORAÇÕES NA LISTA DE PLANOS */
+.lista-planos {
+    list-style: none; 
+    padding-left: 0;
+    font-size: 1.1em;
+}
+
+.lista-planos li {
+    padding-left: 2em; 
+    position: relative;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    /* Linha sutil para separar os itens */
+    border-bottom: 1px dotted #fce4ec; 
+    padding-bottom: 10px;
+}
+
+.lista-planos li::before {
+    content: '♥'; 
+    color: #d94a61; 
+    font-size: 1.4em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* ------------------------------------------- */
+/* GALERIA E MODAL (ZOOM) */
+/* ------------------------------------------- */
+
+/* Galeria de Fotos */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding-top: 10px; 
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    object-position: center top; 
+    border-radius: 10px;
+    border: 4px solid #fce4ec;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer; 
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    border-color: #d94a61;
+    box-shadow: 0 10px 30px rgba(217, 74, 97, 0.6); /* Sombra mais intensa no hover */
+}
+
+/* MODAL (ZOOM DA IMAGEM) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 101; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.95); /* Fundo mais escuro para maior foco */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%; 
+    max-width: 700px;
+    border-radius: 10px;
+    /* Transição suave de entrada */
+    animation-name: animatemodal;
+    animation-duration: 0.6s;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff7e5f; /* Cor de destaque ao passar o mouse */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #fff; /* Legenda branca no fundo escuro */
+    padding: 10px 0;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+/* ------------------------------------------- */
+/* RESPONSIVIDADE (Ajuste para telas menores) */
+/* ------------------------------------------- */
+@media (max-width: 600px) {
+    .site-container {
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .romantic-header h1 {
+        font-size: 2.5em;
+    }
+    .tabs-buttons {
+        padding-top: 10px;
+    }
+    .contador-grid {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .contador-item {
+        width: 45%; 
+        padding: 15px 5px;
+    }
+    .contador-tempo .numero {
+        font-size: 2.5em;
+    }
+    .tab-content {
+        padding: 20px 15px;
+    }
+    .gallery img {
+        height: 200px;
+    }
+    .heart-icon {
+        width: 80px;
+        height: 72px;
+    }
+    .heart-icon::before { top: -40px; left: 0; }
+    .heart-icon::after { left: 40px; top: 0; }
+}
+
+/* ============================================== */
+/* Melhorias adicionais de responsividade (PC + Mobile) */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    .romantic-header h1 { font-size: 2.4em; }
+    .romantic-header h2 { font-size: 1.1em; }
+    .foto-destaque { max-width: 90%; max-height: 350px; }
+    .tabs-buttons { flex-wrap: wrap; gap: 8px; }
+    .tab-link { flex: 1 1 45%; font-size: 1em; padding: 10px 5px; }
+    .contador-grid { flex-wrap: wrap; gap: 12px; }
+    .contador-item { flex: 1 1 45%; }
+    .gallery img { height: auto; max-height: 220px; }
+    .tab-content { padding: 20px 10px; }
+    .lista-planos li { font-size: 1em; }
+    .heart-button p { font-size: 1.2em; text-align: center; }
+    .heart-icon { width: 80px; height: 72px; }
+    .heart-icon::before { top: -40px; }
+    .heart-icon::after { left: 40px; }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .site-container { max-width: 95%; }
+    .foto-destaque { max-width: 450px; }
+}
+
+
+/* ------------------------------------------- */
+/* ❤️ CORAÇÃO INICIAL AJUSTADO PARA PC E CELULAR */
+/* ------------------------------------------- */
+
+#overlay-surprise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #ff7e5f, #d94a61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.6s ease;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.heart-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    text-align: center;
+    color: #fff;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.heart-button p {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+/* coração com proporção ajustável */
+.heart-icon {
+    width: clamp(80px, 25vw, 150px);
+    height: calc(clamp(80px, 25vw, 150px) * 0.9);
+    background-color: #fff;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 15%;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart-icon::before { top: -50%; left: 0; }
+.heart-icon::after { left: 50%; top: 0; }
+
+/* leve animação ao tocar */
+#overlay-surprise:active .heart-icon {
+    transform: rotate(-45deg) scale(0.9);
+    background-color: #ffe4e1;
+}
+
+/* Animação de pulsar */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+
+
+/* ------------------------------------------- */
+/* ❤️ OVERLAY / CORAÇÃO INICIAL (corrigido)    */
+/* ------------------------------------------- */
+
+#overlay-surprise {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #ff7e5f, #d94a61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.6s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.heart-button {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    color: #fff;
+    pointer-events: none;
+}
+
+.heart-button p {
+    pointer-events: auto;
+    margin: 0;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: clamp(0.95rem, 3.8vw, 1.45rem);
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    line-height: 1.05;
+    color: #ffffff;
+}
+
+.heart-icon {
+    --heart-size: clamp(80px, 22vw, 150px);
+    width: var(--heart-size);
+    height: var(--heart-size);
+    position: relative;
+    transform: rotate(-45deg);
+    transform-origin: 50% 50%;
+    background: #ffffff;
+    border-radius: 18%;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+    top: -50%;
+    left: 0;
+}
+
+.heart-icon::after {
+    left: 50%;
+    top: 0;
+}
+
+#overlay-surprise:active .heart-icon,
+#overlay-surprise.revealing .heart-icon {
+    transform: rotate(-45deg) scale(0.94);
+    background-color: #ffe4e1;
+}
+
+@keyframes heartPulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.06); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+.heart-icon.pulse {
+    animation: heartPulse 2.2s ease-in-out infinite;
+}
+
+@media (max-width: 420px) {
+    .heart-button p { font-size: clamp(0.9rem, 4.5vw, 1.1rem); }
+    .heart-icon { box-shadow: 0 6px 18px rgba(0,0,0,0.36); }
+}

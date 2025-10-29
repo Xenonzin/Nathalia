@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Princesa, Nathalia ❤️</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div id="overlay-surprise" onclick="revelarConteudo()">
+        <div class="heart-button">
+            <p>Clique no nosso coração!</p> 
+            <div class="heart-icon"></div>
+        </div>
+    </div>
+
+    <div class="site-container" id="conteudo-principal">
+        <header class="romantic-header">
+            <h1>Kayky & Nathalia</h1>
+            <h2>Nossa História, Contada a Cada Segundo</h2>
+        </header>
+
+        <div class="destaque-area">
+            <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (1).jpeg" alt="Kayky e Nathalia Juntos" class="foto-destaque">
+            <div id="contador" class="contador-tempo">
+                <p class="data-inicio">Nosso papo começou em 15 de Setembro de 2025, às 12:44. Desde então...</p>
+                <div class="contador-grid">
+                    <div class="contador-item"><span id="dias" class="numero">0</span><span class="unidade">Dias</span></div>
+                    <div class="contador-item"><span id="horas" class="numero">0</span><span class="unidade">Horas</span></div>
+                    <div class="contador-item"><span id="minutos" class="numero">0</span><span class="unidade">Minutos</span></div>
+                    <div class="contador-item"><span id="segundos" class="numero">0</span><span class="unidade">Segundos</span></div>
+                </div>
+                <p class="mensagem-footer">Obrigado por cada momento, minha Princesa!</p>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs-buttons">
+                <button class="tab-link active" onclick="openTab(event, 'FotosDela')">A Minha Deusa</button>
+                <button class="tab-link" onclick="openTab(event, 'MinhasFotos')">O Seu Amor</button>
+                <button class="tab-link" onclick="openTab(event, 'NossasFotos')">O Nosso Paraíso</button>
+                <button class="tab-link" onclick="openTab(event, 'Planos')">Nossos Planos</button>
+            </div>
+
+            <div id="FotosDela" class="tab-content">
+                <h2>Onde a Beleza Mora</h2>
+                <div class="gallery">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (4).jpeg" alt="Nathalia Sorrindo" onclick="openModal(this)">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.12.45.jpeg" alt="Nathalia em um momento especial" onclick="openModal(this)">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42.jpeg" alt="Nathalia Foto 3" onclick="openModal(this)">
+                </div>
+            </div>
+
+            <div id="MinhasFotos" class="tab-content" style="display:none;">
+                <h2>O Cara Mais Sortudo do Mundo</h2>
+                <div class="gallery">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (3).jpeg" alt="Kayky feliz" onclick="openModal(this)">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (5).jpeg" alt="Kayky Foto 2" onclick="openModal(this)">
+                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (6).jpeg" alt="Kayky Foto 3" onclick="openModal(this)">
+                </div>
+            </div>
+            
+            <div id="NossasFotos" class="tab-content" style="display:none;">
+                <h2>Os Nossos Melhores Momentos</h2>
+                <div class="gallery">
+                    <img src="imagens/nossas_fotos_1.jpg" alt="Nós dois em um encontro" onclick="openModal(this)">
+                    <img src="imagens/nossas_fotos_2.jpg" alt="Nós dois viajando" onclick="openModal(this)">
+                </div>
+            </div>
+
+            <div id="Planos" class="tab-content" style="display:none;">
+                <h2>Nossas Promessas e Sonhos</h2>
+                <ul class="lista-planos">
+                    <li>♥ Viagem dos Sonhos: Prometo te levar para ver a neve em nosso lugar dos sonhos.</li>
+                    <li>♥ Nossas Músicas: Criar a playlist perfeita para nós dois.</li>
+                    <li>♥ Um dos nossos encontros: Ir ao parque e fazer um piquenique.</li>
+                    <li>♥ Meu maior sonho com você: Te fazer feliz ao ponto de esquecer tudo de ruim.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
