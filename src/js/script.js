@@ -50,6 +50,7 @@ function revelarConteudo() {
     const overlay = document.getElementById('overlay-surprise');
     const conteudo = document.getElementById('conteudo-principal');
 
+    // Retorna se o overlay não existe ou já foi revelado
     if (!overlay || overlay.dataset.revealed === "true") return;
     overlay.dataset.revealed = "true";
     overlay.classList.add('revealing');
@@ -60,9 +61,10 @@ function revelarConteudo() {
         conteudo.style.display = 'block';
         overlay.classList.remove('revealing');
 
-        // Abre automaticamente a primeira aba ("A Minha Deusa")
+        // Abre automaticamente a primeira aba ("O Amor da minha Vida todinha")
         const primeiraAba = document.querySelector('.tab-link');
         if (primeiraAba) {
+            // Cria um objeto de evento simulado, como se tivesse clicado no botão
             openTab({ currentTarget: primeiraAba }, 'FotosDela');
         }
     }, 600);
@@ -72,18 +74,10 @@ function revelarConteudo() {
 document.addEventListener('keydown', function (e) {
     const overlay = document.getElementById('overlay-surprise');
     if (!overlay) return;
+    // Verifica se o overlay está visível e a tecla pressionada
     if ((e.key === 'Enter' || e.key === ' ') && getComputedStyle(overlay).display !== 'none') {
         e.preventDefault();
         revelarConteudo();
-    }
-});
-
-// Efeito de pulsar no coração
-document.addEventListener('DOMContentLoaded', function() {
-    const heart = document.querySelector('.heart-icon');
-    if (heart) {
-        heart.classList.add('pulse');
-        setTimeout(() => heart.classList.remove('pulse'), 10000);
     }
 });
 
@@ -139,5 +133,11 @@ function openTab(evt, tabName) {
     }
 
     // Marca o botão clicado como ativo
-    evt.currentTarget.classList.add("active");
+    if(evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
+    } else {
+        // Se a chamada não veio de um clique (ex: inicialização), encontra o botão
+        const link = document.querySelector(`.tab-link[onclick*="'${tabName}'"]`);
+        if (link) link.classList.add("active");
+    }
 }
