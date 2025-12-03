@@ -1,244 +1,250 @@
-/* Paleta de Cores: #d94a61 (Vermelho Suave), #ffe4e1 (Branco Rosado), #4a4a4a (Cinza Escuro) */
+/* Paleta: #D32F51 (Vinhedo), #FEEAEB (Branco Rosado), #4A4A4A (Cinza Escuro) */
+/* Fontes: Playfair Display (Titulos), Poppins (Corpo) */
 
 /* ------------------------------------------- */
-/* BODY E EFEITO DE FUNDO (Corações Flutuantes) */
+/* RESET E FONTES */
 /* ------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Georgia', serif;
-    /* Gradiente de fundo sutil para um toque romântico */
-    background: linear-gradient(135deg, #ffe4e1 0%, #f08080 100%); 
-    color: #4a4a4a;
+    /* Novo gradiente de fundo suave */
+    background: linear-gradient(to top right, #fff0f5 0%, #feeae8 100%); 
+    color: #4A4A4A;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0; 
     text-align: center;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Efeito dos corações flutuantes no background (Usado pelo script.js) */
-.heart-bg {
-    position: absolute;
-    pointer-events: none; 
-    animation: floatHeart linear infinite;
-    transform: rotate(-45deg);
-    background-color: #d94a61;
-    border-radius: 50%;
-    /* Adiciona um efeito de borrão suave para parecer mais etéreo */
-    filter: blur(1px); 
-    box-shadow: 0 0 5px rgba(217, 74, 97, 0.5); 
-}
-
-.heart-bg::before,
-.heart-bg::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.heart-bg::before { top: -50%; left: 0; }
-.heart-bg::after { left: 50%; top: 0; }
-
-@keyframes floatHeart {
-    0% { transform: translateY(100vh) rotate(45deg) scale(0.5); opacity: 0; }
-    50% { opacity: 0.15; }
-    100% { transform: translateY(-10vh) rotate(45deg) scale(1); opacity: 0; }
-}
-
-/* CONTAINER PRINCIPAL DO SITE (Aparência de Livro/Carta) */
+/* CONTAINER PRINCIPAL (Efeito Cartão/Flutuante) */
 .site-container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 40px auto; 
-    background-color: #fff; /* Fundo branco puro para destaque */
+    background-color: #ffffff; 
     border-radius: 20px;
-    /* Sombra mais profunda para efeito 3D */
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35); 
+    /* Sombra suave e elegante */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     display: none; 
-    position: relative;
     z-index: 10;
 }
 
 /* ------------------------------------------- */
-/* SURPRESA INICIAL (OVERLAY) */
+/* OVERLAY INICIAL (CORREÇÃO FINAL ROBUSTA DO CORAÇÃO) */
 /* ------------------------------------------- */
-
 #overlay-surprise {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradiente vibrante para o clique inicial */
-    background: radial-gradient(circle at center, #ff7e5f, #d94a61); 
+    inset: 0;
+    /* Centralização garantida pelo display: flex */
+    background: radial-gradient(circle at center, #ff8c9a, #D32F51);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
     cursor: pointer;
-    transition: opacity 0.5s ease-out;
-}
-
-.heart-button {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    /* Pulsação do botão para convidar o clique */
-    animation: pulse 1.5s infinite;
+    transition: opacity 0.6s ease;
+    padding: 20px;
 }
 
 .heart-button p {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.8vw, 1.45rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 15px; /* Espaço entre o coração e o texto */
 }
 
-.heart-icon {
-    width: 120px;
-    height: 108px;
-    background-color: #fff;
-    position: relative;
-    transform: rotate(-45deg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s;
-}
-/* Estilização padrão do coração */
-.heart-icon::before,
-.heart-icon::after {
-    content: '';
-    width: 120px;
-    height: 108px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.heart-icon::before { top: -60px; left: 0; }
-.heart-icon::after { left: 60px; top: 0; }
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-
-/* ------------------------------------------- */
-/* HEADER E CONTADOR (Design de Cartões Premium) */
-/* ------------------------------------------- */
-
-.romantic-header {
-    /* Gradiente elegante no header */
-    background: linear-gradient(to right, #d94a61, #8b0000); 
-    color: #fff;
-    padding: 30px 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.romantic-header h1 { font-size: 3.5em; margin-bottom: 5px; }
-.romantic-header h2 { font-size: 1.3em; font-style: italic; font-weight: 300; margin-top: 0; }
-
-.destaque-area {
-    padding: 30px;
+.heart-button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.heart-icon {
+    /* Define o tamanho */
+    --heart-size: clamp(80px, 22vw, 150px);
+    width: var(--heart-size);
+    height: var(--heart-size);
+    position: relative; 
+    
+    /* Configuração da ponta (quadrado girado) */
+    background: #ffffff; /* Cor branca do coração */
+    transform: rotate(-45deg); /* Rotação que cria a ponta */
+    border-radius: 8px; /* Suaviza a ponta */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1; 
+    
+    /* Centraliza a animação */
+    transform-origin: 50% 50%;
+}
+
+.heart-icon.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Círculos Superiores (ombros do coração) */
+.heart-icon:before,
+.heart-icon:after {
+    content: "";
+    position: absolute;
+    /* Tamanho dos círculos igual ao elemento principal para simetria perfeita */
+    width: var(--heart-size);
+    height: var(--heart-size);
+    background: inherit; /* Herda o branco do .heart-icon */
+    border-radius: 50%;
+    z-index: 2; /* Garante que os círculos fiquem em cima da ponta */
+}
+
+.heart-icon:before {
+    /* Ombro esquerdo */
+    top: calc(-1 * var(--heart-size) / 2);
+    left: 0;
+}
+
+.heart-icon:after {
+    /* Ombro direito */
+    left: calc(var(--heart-size) / 2);
+    top: 0;
+}
+
+/* Keyframes para manter a rotação de -45deg durante o pulso */
+@keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+
+/* ------------------------------------------- */
+/* HEADER E SEÇÕES */
+/* ------------------------------------------- */
+
+.romantic-header {
+    background: linear-gradient(to right, #D32F51, #A3203C); 
+    color: #fff;
+    padding: 40px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.romantic-header h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8em; 
+    margin-bottom: 5px; 
+    font-weight: 700;
+}
+.romantic-header h2 { 
+    font-size: 1.4em; 
+    font-style: italic; 
+    font-weight: 300; 
+    margin-top: 5px; 
+}
+
+.destaque-area {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .foto-destaque {
     width: 100%;
-    max-width: 380px; 
-    height: auto;
-    border-radius: 10px; 
-    /* Borda elegante na foto de destaque */
-    border: 8px solid #fce4ec; 
-    box-shadow: 0 0 30px rgba(217, 74, 97, 0.7); 
-    margin-bottom: 30px;
+    height: 450px;
     object-fit: cover; 
-    max-height: 450px;
+    border-radius: 12px; 
+    border: 5px solid #FEEAEB; 
+    box-shadow: 0 8px 30px rgba(211, 47, 81, 0.4); 
+    transition: transform 0.3s;
+}
+
+.foto-destaque:hover {
+    transform: scale(1.02);
+}
+
+/* ------------------------------------------- */
+/* CONTADOR (Design de Cartão Elegante) */
+/* ------------------------------------------- */
+.card {
+    background-color: #fff; 
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #f0f0f0;
 }
 
 .contador-tempo {
-    background-color: #fff0f5; 
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); 
-    width: 100%;
-    max-width: 550px;
-    margin-top: 10px;
+    padding: 25px;
+}
+
+.contador-tempo .data-inicio {
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #8b0000;
 }
 
 .contador-grid {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-around; 
     gap: 15px;
     margin-bottom: 20px;
 }
 
 .contador-item {
     flex: 1; 
-    /* Gradiente sutil nos cartões do contador */
-    background: linear-gradient(145deg, #ffe8e8, #fcdada); 
-    padding: 18px 5px;
-    border-radius: 12px;
-    /* Sombra interna para profundidade */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.1); 
-    border: 1px solid #f08080;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #ffe8e8; 
+    padding: 15px 5px;
+    border-radius: 10px;
+    border-bottom: 4px solid #D32F51;
+    transition: all 0.3s;
 }
 
 .contador-item:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 15px rgba(217, 74, 97, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(211, 47, 81, 0.2);
 }
 
 .contador-tempo .numero {
-    display: block;
-    font-size: 3.2em; 
-    font-family: 'Arial', sans-serif; 
-    font-weight: 800;
-    color: #d94a61; 
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em; 
+    font-weight: 700;
+    color: #D32F51; 
     line-height: 1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .contador-tempo .unidade {
-    display: block;
     font-size: 0.9em;
     text-transform: uppercase;
-    color: #4a4a4a;
+    color: #4A4A4A;
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
-
 /* ------------------------------------------- */
-/* TABS (ABAS) */
+/* ABAS (TABS) - Design Minimalista */
 /* ------------------------------------------- */
 .tabs-container {
-    padding: 0 20px;
+    margin: 40px 20px;
+    padding: 0;
 }
 
 .tabs-buttons {
     display: flex;
-    justify-content: space-around;
-    border-bottom: 2px solid #f08080; 
-    background-color: #ffe4e1; 
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px;
-    margin-top: -15px; 
-    padding-top: 15px; 
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    background-color: #fcfcfc;
+    border-radius: 10px 10px 0 0;
+    padding-top: 10px; 
 }
 
 .tab-link {
@@ -246,26 +252,25 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 15px 10px;
-    font-size: 1.1em;
+    padding: 12px 10px;
+    font-size: 1.05em;
     font-weight: 600;
-    text-transform: uppercase;
     background-color: transparent;
     color: #8b0000;
     transition: all 0.3s ease;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    max-width: 25%;
+    border-radius: 8px 8px 0 0;
 }
 
-.tab-link:hover {
-    background-color: #fce4ec;
+.tab-link:hover:not(.active) {
+    background-color: #fff5f5;
 }
 
 .tab-link.active {
     background-color: #fff;
-    border-bottom: 4px solid #d94a61;
-    color: #8b0000;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid #D32F51;
+    color: #D32F51;
+    font-weight: 700;
 }
 
 /* Conteúdo das Abas */
@@ -273,100 +278,120 @@ body {
     padding: 30px;
     text-align: left;
     background-color: #fff; 
-    border-radius: 0 0 15px 15px; 
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-    min-height: 400px;
+    border-radius: 0 0 10px 10px; 
+    min-height: 450px;
 }
 
-.tab-content h2 {
-    color: #d94a61;
-    border-bottom: 1px dashed #f08080;
+.tab-title {
+    font-family: 'Playfair Display', serif;
+    color: #D32F51;
+    font-size: 2em;
     padding-bottom: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* ESTILO: CORAÇÕES NA LISTA DE PLANOS */
+/* LISTA DE PLANOS */
 .lista-planos {
     list-style: none; 
     padding-left: 0;
     font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .lista-planos li {
-    padding-left: 2em; 
+    padding: 15px 0 15px 2em; 
     position: relative;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    color: #4a4a4a;
-    /* Linha sutil para separar os itens */
-    border-bottom: 1px dotted #fce4ec; 
-    padding-bottom: 10px;
+    border-bottom: 1px dashed #f0f0f0; 
+    transition: background-color 0.2s;
+    line-height: 1.4;
 }
 
-.lista-planos li::before {
-    content: '♥'; 
-    color: #d94a61; 
+.lista-planos li:last-child {
+    border-bottom: none;
+}
+
+.lista-planos li:hover {
+    background-color: #fffafa;
+}
+
+.coracao {
+    color: #D32F51;
     font-size: 1.4em;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
 }
 
 
 /* ------------------------------------------- */
-/* GALERIA E MODAL (ZOOM) */
+/* GALERIA (Ajustada para mais fotos) */
 /* ------------------------------------------- */
 
-/* Galeria de Fotos */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Colunas ajustáveis (pelo menos 180px, máx 4 colunas em telas grandes) */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
     padding-top: 10px; 
 }
 
 .gallery img {
     width: 100%;
-    height: 250px; 
+    height: 250px; /* Altura fixa para uniformidade */
     object-fit: cover; 
-    object-position: center top; 
-    border-radius: 10px;
-    border: 4px solid #fce4ec;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    object-position: center center; 
+    border-radius: 8px;
+    border: 3px solid #fce4ec;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer; 
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
-    border-color: #d94a61;
-    box-shadow: 0 10px 30px rgba(217, 74, 97, 0.6); /* Sombra mais intensa no hover */
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(211, 47, 81, 0.4); 
+    border-color: #D32F51;
 }
 
-/* MODAL (ZOOM DA IMAGEM) */
+/* ------------------------------------------- */
+/* MODAL (Adicionado para funcionar com o JS) */
+/* ------------------------------------------- */
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 101; 
+    z-index: 1000; 
     padding-top: 60px; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(0,0,0,0.95); /* Fundo mais escuro para maior foco */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    width: 90%; 
+    width: 80%;
     max-width: 700px;
-    border-radius: 10px;
-    /* Transição suave de entrada */
-    animation-name: animatemodal;
-    animation-duration: 0.6s;
+    max-height: 90vh; 
+    object-fit: contain; 
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }
 
 .close {
@@ -381,262 +406,52 @@ body {
 
 .close:hover,
 .close:focus {
-    color: #ff7e5f; /* Cor de destaque ao passar o mouse */
+    color: #bbb;
     text-decoration: none;
     cursor: pointer;
 }
 
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #fff; /* Legenda branca no fundo escuro */
-    padding: 10px 0;
-    font-style: italic;
-    font-size: 1.1em;
-}
 
 /* ------------------------------------------- */
-/* RESPONSIVIDADE (Ajuste para telas menores) */
+/* RESPONSIVIDADE */
 /* ------------------------------------------- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .site-container {
-        margin: 20px auto;
-        border-radius: 10px;
+        margin: 0;
+        border-radius: 0;
     }
     .romantic-header h1 {
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
-    .tabs-buttons {
-        padding-top: 10px;
+    .destaque-area {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+        padding: 20px 15px;
+    }
+    .foto-destaque {
+        height: 300px;
+        max-width: 100%;
+        margin-bottom: 20px;
     }
     .contador-grid {
-        flex-wrap: wrap;
         gap: 10px;
+        flex-wrap: wrap;
     }
     .contador-item {
-        width: 45%; 
-        padding: 15px 5px;
+        flex: 1 1 calc(50% - 10px); /* 2 colunas no contador */
     }
-    .contador-tempo .numero {
-        font-size: 2.5em;
+    .tabs-buttons {
+        flex-wrap: wrap;
     }
-    .tab-content {
-        padding: 20px 15px;
+    .tab-link {
+        flex: 1 1 50%;
+        max-width: 50%;
+        font-size: 0.9em;
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Fotos menores no mobile */
+        gap: 15px;
     }
     .gallery img {
         height: 200px;
     }
-    .heart-icon {
-        width: 80px;
-        height: 72px;
-    }
-    .heart-icon::before { top: -40px; left: 0; }
-    .heart-icon::after { left: 40px; top: 0; }
-}
-
-/* ============================================== */
-/* Melhorias adicionais de responsividade (PC + Mobile) */
-/* ============================================== */
-
-@media (max-width: 768px) {
-    .romantic-header h1 { font-size: 2.4em; }
-    .romantic-header h2 { font-size: 1.1em; }
-    .foto-destaque { max-width: 90%; max-height: 350px; }
-    .tabs-buttons { flex-wrap: wrap; gap: 8px; }
-    .tab-link { flex: 1 1 45%; font-size: 1em; padding: 10px 5px; }
-    .contador-grid { flex-wrap: wrap; gap: 12px; }
-    .contador-item { flex: 1 1 45%; }
-    .gallery img { height: auto; max-height: 220px; }
-    .tab-content { padding: 20px 10px; }
-    .lista-planos li { font-size: 1em; }
-    .heart-button p { font-size: 1.2em; text-align: center; }
-    .heart-icon { width: 80px; height: 72px; }
-    .heart-icon::before { top: -40px; }
-    .heart-icon::after { left: 40px; }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-    .site-container { max-width: 95%; }
-    .foto-destaque { max-width: 450px; }
-}
-
-
-/* ------------------------------------------- */
-/* ❤️ CORAÇÃO INICIAL AJUSTADO PARA PC E CELULAR */
-/* ------------------------------------------- */
-
-#overlay-surprise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at center, #ff7e5f, #d94a61);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    cursor: pointer;
-    transition: opacity 0.6s ease;
-    overflow: hidden;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.heart-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    text-align: center;
-    color: #fff;
-    animation: pulse 1.5s infinite ease-in-out;
-}
-
-.heart-button p {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: clamp(1rem, 4vw, 1.6rem);
-    font-weight: bold;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    margin: 0;
-}
-
-/* coração com proporção ajustável */
-.heart-icon {
-    width: clamp(80px, 25vw, 150px);
-    height: calc(clamp(80px, 25vw, 150px) * 0.9);
-    background-color: #fff;
-    position: relative;
-    transform: rotate(-45deg);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    border-radius: 15%;
-}
-
-.heart-icon::before,
-.heart-icon::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
-    border-radius: 50%;
-}
-
-.heart-icon::before { top: -50%; left: 0; }
-.heart-icon::after { left: 50%; top: 0; }
-
-/* leve animação ao tocar */
-#overlay-surprise:active .heart-icon {
-    transform: rotate(-45deg) scale(0.9);
-    background-color: #ffe4e1;
-}
-
-/* Animação de pulsar */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-
-
-/* ------------------------------------------- */
-/* ❤️ OVERLAY / CORAÇÃO INICIAL (corrigido)    */
-/* ------------------------------------------- */
-
-#overlay-surprise {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at center, #ff7e5f, #d94a61);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    cursor: pointer;
-    transition: opacity 0.6s ease;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.heart-button {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    text-align: center;
-    color: #fff;
-    pointer-events: none;
-}
-
-.heart-button p {
-    pointer-events: auto;
-    margin: 0;
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: clamp(0.95rem, 3.8vw, 1.45rem);
-    font-weight: 700;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.45);
-    line-height: 1.05;
-    color: #ffffff;
-}
-
-.heart-icon {
-    --heart-size: clamp(80px, 22vw, 150px);
-    width: var(--heart-size);
-    height: var(--heart-size);
-    position: relative;
-    transform: rotate(-45deg);
-    transform-origin: 50% 50%;
-    background: #ffffff;
-    border-radius: 18%;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
-    transition: transform 0.25s ease, background-color 0.25s ease;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.heart-icon::before,
-.heart-icon::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    border-radius: 50%;
-    top: -50%;
-    left: 0;
-}
-
-.heart-icon::after {
-    left: 50%;
-    top: 0;
-}
-
-#overlay-surprise:active .heart-icon,
-#overlay-surprise.revealing .heart-icon {
-    transform: rotate(-45deg) scale(0.94);
-    background-color: #ffe4e1;
-}
-
-@keyframes heartPulse {
-    0% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.06); }
-    100% { transform: rotate(-45deg) scale(1); }
-}
-
-.heart-icon.pulse {
-    animation: heartPulse 2.2s ease-in-out infinite;
-}
-
-@media (max-width: 420px) {
-    .heart-button p { font-size: clamp(0.9rem, 4.5vw, 1.1rem); }
-    .heart-icon { box-shadow: 0 6px 18px rgba(0,0,0,0.36); }
 }
