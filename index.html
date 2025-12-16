@@ -4,99 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Minha Princesa, Nathalia ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div id="overlay-surprise" onclick="revelarConteudo()">
-        <div class="heart-button">
-            <div class="heart-icon pulse"></div>
-            <p>Clique no nosso coração para começar a nossa história!</p> 
-        </div>
+
+<div id="overlay-surprise" onclick="revelarConteudo()">
+    <div class="heart-button">
+        <div class="heart-icon pulse"></div>
+        <p>Clique no nosso coração para começar a nossa história!</p>
+    </div>
+</div>
+
+<div class="site-container" id="conteudo-principal">
+
+<header class="romantic-header">
+    <h1 class="logo">K & N</h1>
+    <h2>Nossa História, Contada a Cada Segundo</h2>
+</header>
+
+<section class="destaque-area">
+
+<div class="contador-tempo card namoro-principal">
+    <p class="data-inicio">Nosso namoro começou em <b>13 de Dezembro de 2025 às 14:30</b></p>
+
+    <div class="contador-grid">
+        <div class="contador-item"><span id="n-dias" class="numero">0</span><span class="unidade">Dias</span></div>
+        <div class="contador-item"><span id="n-horas" class="numero">0</span><span class="unidade">Horas</span></div>
+        <div class="contador-item"><span id="n-minutos" class="numero">0</span><span class="unidade">Minutos</span></div>
+        <div class="contador-item"><span id="n-segundos" class="numero">0</span><span class="unidade">Segundos</span></div>
     </div>
 
-    <div class="site-container" id="conteudo-principal">
-        <header class="romantic-header">
-            <h1 class="logo">K & N</h1>
-            <h2>Nossa História, Contada a Cada Segundo</h2>
-        </header>
+    <p class="mensagem-footer">Eu te amo ❤️</p>
+</div>
 
-        <section class="destaque-area">
-            <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_1287d037.jpg" alt="Kayky e Nathalia Juntos" class="foto-destaque">
-            
-            <div id="contador" class="contador-tempo card">
-                <p class="data-inicio">Nosso papo começou em **15 de Setembro de 2025**, às 12:44. Desde então...</p>
-                <div class="contador-grid">
-                    <div class="contador-item"><span id="dias" class="numero">0</span><span class="unidade">Dias</span></div>
-                    <div class="contador-item"><span id="horas" class="numero">0</span><span class="unidade">Horas</span></div>
-                    <div class="contador-item"><span id="minutos" class="numero">0</span><span class="unidade">Minutos</span></div>
-                    <div class="contador-item"><span id="segundos" class="numero">0</span><span class="unidade">Segundos</span></div>
-                </div>
-                <p class="mensagem-footer">Obrigado por cada momento, minha Princesa! Eu te adoro.</p>
-            </div>
-        </section>
+<div class="contador-tempo card conversa-secundaria">
+    <p class="data-inicio">Nosso papo começou em 15 de Setembro de 2025, às 12:44</p>
 
-        <div class="tabs-container card">
-            <div class="tabs-buttons">
-                <button class="tab-link active" onclick="openTab(event, 'FotosDela')">O Amor da minha Vida todinha</button>
-                <button class="tab-link" onclick="openTab(event, 'MinhasFotos')">O Seu Amor</button>
-                <button class="tab-link" onclick="openTab(event, 'NossasFotos')">O Nosso Paraíso</button>
-                <button class="tab-link" onclick="openTab(event, 'Planos')">Nossos Planos</button>
-            </div>
-
-            <div id="FotosDela" class="tab-content">
-                <h3 class="tab-title">Onde a Beleza Mora</h3>
-                <div class="gallery">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (4).jpeg" alt="Nathalia Sorrindo" onclick="openModal(this)">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.12.45.jpeg" alt="Nathalia em um momento especial" onclick="openModal(this)">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42.jpeg" alt="" onclick="openModal(this)">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.03_595a9547.jpg" alt="foto no espelho" onclick="openModal(this)">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_9ef2ee20.jpg" alt="Final de ano" onclick="openModal(this)">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_713bf37a.jpg" alt="o sorriso mais lindo do mundo" onclick="openModal(this)">
-                    </div>
-            </div>
-
-            <div id="MinhasFotos" class="tab-content" style="display:none;">
-                <h3 class="tab-title">O Cara Mais Sortudo do Mundo</h3>
-                <div class="gallery">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (3).jpeg" alt="Kayky feliz" onclick="openModal(this)">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (5).jpeg" alt="Kayky Foto 2" onclick="openModal(this)">
-                    <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (6).jpeg" alt="Kayky Foto 3" onclick="openModal(this)">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.03_fded931b.jpg" alt="" onclick="openModal(this)">
-                    </div>
-            </div>
-            
-            <div id="NossasFotos" class="tab-content" style="display:none;">
-                <h3 class="tab-title">Os Nossos Melhores Momentos</h3>
-                <div class="gallery">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_39ca1def.jpg" alt="Nós dois em um encontro" onclick="openModal(this)">
-                    <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_1287d037.jpg" alt="Nós dois num dia incrivel" onclick="openModal(this)">
-                    <img src="src/imagens/nossas_fotos_nova_1.jpg" alt="Selfie fofa" onclick="openModal(this)"> 
-                    <img src="src/imagens/nossas_fotos_nova_2.jpg" alt="Nós dois no cinema" onclick="openModal(this)">
-                    </div>
-            </div>
-
-            <div id="Planos" class="tab-content" style="display:none;">
-                <h3 class="tab-title">Nossas Promessas e Sonhos</h3>
-                <ul class="lista-planos">
-                    <li><span class="coracao">♥</span> Viagem dos Sonhos: Prometo te levar para ver a neve em nosso lugar dos sonhos.</li>
-                    <li><span class="coracao">♥</span> Nossas Músicas: Criar a playlist perfeita para nós dois.</li>
-                    <li><span class="coracao">♥</span> Um dos nossos encontros: Ir ao parque e fazer um piquenique.</li>
-                    <li><span class="coracao">♥</span> Meu maior sonho com você: Te fazer feliz ao ponto de esquecer tudo de ruim.</li>
-                    <li><span class="coracao">♥</span> **NOVO PLANO:** Ver o nascer do sol juntos em uma praia.</li>
-                    <li><span class="coracao">♥</span> **NOVO PLANO:** Cozinhar nossa receita favorita (e fazer bagunça na cozinha!).</li>
-                </ul>
-            </div>
-        </div>
+    <div class="contador-grid">
+        <div class="contador-item"><span id="dias" class="numero">0</span><span class="unidade">Dias</span></div>
+        <div class="contador-item"><span id="horas" class="numero">0</span><span class="unidade">Horas</span></div>
+        <div class="contador-item"><span id="minutos" class="numero">0</span><span class="unidade">Minutos</span></div>
+        <div class="contador-item"><span id="segundos" class="numero">0</span><span class="unidade">Segundos</span></div>
     </div>
 
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
+    <p class="mensagem-footer">Obrigado por cada momento, minha Princesa! Eu te amo ❤️</p>
+</div>
 
-    <script src="src/js/script.js"></script>
+</section>
+
+<div class="tabs-container card">
+<div class="tabs-buttons">
+    <button class="tab-link active" onclick="openTab(event,'FotosDela')">O Amor da Minha Vida</button>
+    <button class="tab-link" onclick="openTab(event,'NossasFotos')">Nossas Fotos</button> <button class="tab-link" onclick="openTab(event,'MinhasFotos')">Minhas Fotos</button> <button class="tab-link" onclick="openTab(event,'Pedido')">O Pedido 💍</button>
+    <button class="tab-link" onclick="openTab(event,'Saude')">Cuidando de Você</button>
+    <button class="tab-link" onclick="openTab(event,'Aniversario')">Aniversário! 🎉</button>
+</div>
+
+<div id="FotosDela" class="tab-content">
+    <h3 class="tab-title">Onde a Beleza Mora</h3>
+    <div class="gallery">
+        <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_713bf37a.jpg" onclick="openModal(this)">
+        <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_9ef2ee20.jpg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (4).jpeg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.12.45.jpeg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42.jpeg" onclick="openModal(this)">
+        <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.03_c5563065.jpg" onclick="openModal(this)">
+        <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.03_595a9547.jpg" onclick="openModal(this)">
+        <img src="src/imagens/foto8.jpg" onclick="openModal(this)">
+        <img src="src/imagens/foto9.jpg" onclick="openModal(this)">
+        <img src="src/imagens/foto10.jpg" onclick="openModal(this)">
+        <img src="src/imagens/foto11.jpg" onclick="openModal(this)">
+        <img src="src/imagens/foto12.jpg" onclick="openModal(this)">
+    </div>
+</div>
+
+<div id="NossasFotos" class="tab-content" style="display:none;">
+    <h3 class="tab-title">Nossas Aventuras Juntos</h3>
+    <div class="gallery">
+        <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.52 (4).jpeg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.52 (2).jpeg" onclick="openModal(this)"> <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_39ca1def.jpg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (1).jpeg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (2).jpeg" onclick="openModal(this)"> <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.02_1287d037.jpg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.53 (2).jpeg" onclick="openModal(this)"> <img src="src/imagens/juntos8.jpg" onclick="openModal(this)"> </div>
+</div>
+
+<div id="MinhasFotos" class="tab-content" style="display:none;">
+    <h3 class="tab-title">Seu Amor (Eu)</h3>
+    <div class="gallery">
+        <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.04_93429358.jpg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (3).jpeg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.53.jpeg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (6).jpeg" onclick="openModal(this)"> <img src="src/imagens/WhatsApp Image 2025-10-27 at 21.10.42 (5).jpeg" onclick="openModal(this)"> <img src="src/imagens/Imagem do WhatsApp de 2025-12-02 à(s) 22.00.03_c9f97b0c.jpg" onclick="openModal(this)"> <img src="src/imagens/minhafoto6.jpg" onclick="openModal(this)"> <img src="src/imagens/minhafoto8.jpg" onclick="openModal(this)"> </div>
+</div>
+
+<div id="Pedido" class="tab-content" style="display:none;">
+    <h3 class="tab-title">13 de Dezembro de 2025 ❤️</h3>
+    <div class="gallery">
+        <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.51 (1).jpeg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.52 (4).jpeg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.52 (3).jpeg" onclick="openModal(this)">
+        <img src="src/imagens/WhatsApp Image 2025-12-15 at 22.20.53 (1).jpeg" onclick="openModal(this)">
+        <img src="src/imagens/pedido5.jpg" onclick="openModal(this)">
+        <img src="src/imagens/pedido6.jpg" onclick="openModal(this)">
+        <img src="src/imagens/pedido7.jpg" onclick="openModal(this)">
+        <img src="src/imagens/pedido8.jpg" onclick="openModal(this)">
+    </div>
+</div>
+
+<div id="Saude" class="tab-content" style="display:none;">
+    <h3 class="tab-title">Seu Corpo (Ectomorfo), Sua Saúde - Ganhando Massa com Amor</h3>
+    <p>Eu sei o quanto você se preocupa com o seu corpo e eu estarei aqui para te apoiar em cada passo! Pessoas com o biotipo **ectomorfo** tendem a ter dificuldade em ganhar massa, mas com o plano certo, você alcançará seus objetivos de forma saudável. 💪</p>
+    <ul class="lista-planos">
+        <li class="plano-item"><span class="coracao">♥</span> **Alimentação Reforçada (Superavit Calórico):** Para ganhar peso, o corpo precisa de mais calorias do que gasta. Foco em alimentos densos em calorias e nutrientes (ex: pastas de amendoim, abacate, azeite, proteínas magras).</li>
+        <li class="plano-item"><span class="coracao">♥</span> **Proteína em Todas as Refeições:** Essencial para a construção muscular. (ex: frango, ovos, whey protein).</li>
+        <li class="plano-item"><span class="coracao">♥</span> **Treinos Consistentes e Focados em Força:** Priorizar exercícios compostos (agachamento, supino, levantamento terra) com poucas repetições e alta carga. Menos cardio.</li>
+        <li class="plano-item"><span class="coracao">♥</span> **Descanso Adequado (O Músculo Cresce Dormindo!):** 7-9 horas de sono de qualidade para a recuperação muscular.</li>
+        <li class="plano-item"><span class="coracao">♥</span> **Eu sempre cuidando de você e te incentivando!** ❤️</li>
+    </ul>
+</div>
+
+<div id="Aniversario" class="tab-content" style="display:none;">
+    <h3 class="tab-title">🎉 18 Anos da Minha Vida! 🎉</h3>
+    <p>O grande dia está chegando! No dia **28 de Dezembro de 2025**, minha princesa completa 18 anos!</p>
+    <p>Prepare-se, porque será um dia inesquecível, cheio de surpresas e do meu amor. Mal posso esperar para comemorar com você! 🥳</p>
+</div>
+</div>
+</div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
+<script src="src/js/script.js"></script>
 </body>
 </html>
