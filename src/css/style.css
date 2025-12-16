@@ -1,457 +1,327 @@
-/* Paleta: #D32F51 (Vinhedo), #FEEAEB (Branco Rosado), #4A4A4A (Cinza Escuro) */
-/* Fontes: Playfair Display (Titulos), Poppins (Corpo) */
-
-/* ------------------------------------------- */
-/* RESET E FONTES */
-/* ------------------------------------------- */
 * {
     box-sizing: border-box;
-}
-
-body {
-    /* Novo gradiente de fundo suave */
-    background: linear-gradient(to top right, #fff0f5 0%, #feeae8 100%); 
-    color: #4A4A4A;
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0; 
-    text-align: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* CONTAINER PRINCIPAL (Efeito Cartão/Flutuante) */
-.site-container {
-    max-width: 1000px;
-    margin: 40px auto; 
-    background-color: #ffffff; 
-    border-radius: 20px;
-    /* Sombra suave e elegante */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); 
-    overflow: hidden;
-    padding-bottom: 40px;
-    display: none; 
-    z-index: 10;
-}
-
-/* ------------------------------------------- */
-/* OVERLAY INICIAL (CORREÇÃO FINAL ROBUSTA DO CORAÇÃO) */
-/* ------------------------------------------- */
-#overlay-surprise {
-    position: fixed;
-    inset: 0;
-    /* Centralização garantida pelo display: flex */
-    background: radial-gradient(circle at center, #ff8c9a, #D32F51);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    cursor: pointer;
-    transition: opacity 0.6s ease;
-    padding: 20px;
-}
-
-.heart-button p {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(0.95rem, 3.8vw, 1.45rem);
-    font-weight: 700;
-    color: #ffffff;
-    margin-top: 15px; /* Espaço entre o coração e o texto */
-}
-
-.heart-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.heart-icon {
-    /* Define o tamanho */
-    --heart-size: clamp(80px, 22vw, 150px);
-    width: var(--heart-size);
-    height: var(--heart-size);
-    position: relative; 
-    
-    /* Configuração da ponta (quadrado girado) */
-    background: #ffffff; /* Cor branca do coração */
-    transform: rotate(-45deg); /* Rotação que cria a ponta */
-    border-radius: 8px; /* Suaviza a ponta */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    z-index: 1; 
-    
-    /* Centraliza a animação */
-    transform-origin: 50% 50%;
-}
-
-.heart-icon.pulse {
-    animation: pulse 1.5s infinite;
-}
-
-/* Círculos Superiores (ombros do coração) */
-.heart-icon:before,
-.heart-icon:after {
-    content: "";
-    position: absolute;
-    /* Tamanho dos círculos igual ao elemento principal para simetria perfeita */
-    width: var(--heart-size);
-    height: var(--heart-size);
-    background: inherit; /* Herda o branco do .heart-icon */
-    border-radius: 50%;
-    z-index: 2; /* Garante que os círculos fiquem em cima da ponta */
-}
-
-.heart-icon:before {
-    /* Ombro esquerdo */
-    top: calc(-1 * var(--heart-size) / 2);
-    left: 0;
-}
-
-.heart-icon:after {
-    /* Ombro direito */
-    left: calc(var(--heart-size) / 2);
-    top: 0;
-}
-
-/* Keyframes para manter a rotação de -45deg durante o pulso */
-@keyframes pulse {
-    0% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.1); }
-    100% { transform: rotate(-45deg) scale(1); }
-}
-
-
-/* ------------------------------------------- */
-/* HEADER E SEÇÕES */
-/* ------------------------------------------- */
-
-.romantic-header {
-    background: linear-gradient(to right, #D32F51, #A3203C); 
-    color: #fff;
-    padding: 40px 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-}
-
-.romantic-header h1 { 
-    font-family: 'Playfair Display', serif;
-    font-size: 3.8em; 
-    margin-bottom: 5px; 
-    font-weight: 700;
-}
-.romantic-header h2 { 
-    font-size: 1.4em; 
-    font-style: italic; 
-    font-weight: 300; 
-    margin-top: 5px; 
-}
-
-.destaque-area {
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.foto-destaque {
-    width: 100%;
-    height: 450px;
-    object-fit: cover; 
-    border-radius: 12px; 
-    border: 5px solid #FEEAEB; 
-    box-shadow: 0 8px 30px rgba(211, 47, 81, 0.4); 
-    transition: transform 0.3s;
-}
-
-.foto-destaque:hover {
-    transform: scale(1.02);
-}
-
-/* ------------------------------------------- */
-/* CONTADOR (Design de Cartão Elegante) */
-/* ------------------------------------------- */
-.card {
-    background-color: #fff; 
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); 
-    border: 1px solid #f0f0f0;
-}
-
-.contador-tempo {
-    padding: 25px;
-}
-
-.contador-tempo .data-inicio {
-    font-size: 1.1em;
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #8b0000;
-}
-
-.contador-grid {
-    display: flex;
-    justify-content: space-around; 
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.contador-item {
-    flex: 1; 
-    background: #ffe8e8; 
-    padding: 15px 5px;
-    border-radius: 10px;
-    border-bottom: 4px solid #D32F51;
-    transition: all 0.3s;
-}
-
-.contador-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(211, 47, 81, 0.2);
-}
-
-.contador-tempo .numero {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5em; 
-    font-weight: 700;
-    color: #D32F51; 
-    line-height: 1;
-}
-
-.contador-tempo .unidade {
-    font-size: 0.9em;
-    text-transform: uppercase;
-    color: #4A4A4A;
-    font-weight: 600;
-    margin-top: 5px;
-}
-
-/* ------------------------------------------- */
-/* ABAS (TABS) - Design Minimalista */
-/* ------------------------------------------- */
-.tabs-container {
-    margin: 40px 20px;
     padding: 0;
 }
 
-.tabs-buttons {
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top right,#fff0f5,#feeae8);
+    color:#4A4A4A;
+    text-align:center;
+}
+
+/* OVERLAY */
+#overlay-surprise{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle,#ff8c9a,#D32F51);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+    cursor:pointer;
+    opacity: 1; /* Garantir que começa visível */
+    transition: opacity 0.6s ease;
+}
+
+.heart-button {
+    /* Centraliza o ícone e o texto verticalmente */
     display: flex;
-    justify-content: center;
-    border-bottom: 1px solid #eee;
-    background-color: #fcfcfc;
-    border-radius: 10px 10px 0 0;
-    padding-top: 10px; 
+    flex-direction: column;
+    align-items: center;
 }
 
-.tab-link {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 12px 10px;
-    font-size: 1.05em;
-    font-weight: 600;
-    background-color: transparent;
-    color: #8b0000;
-    transition: all 0.3s ease;
-    max-width: 25%;
-    border-radius: 8px 8px 0 0;
-}
-
-.tab-link:hover:not(.active) {
-    background-color: #fff5f5;
-}
-
-.tab-link.active {
-    background-color: #fff;
-    border-bottom: 3px solid #D32F51;
-    color: #D32F51;
-    font-weight: 700;
-}
-
-/* Conteúdo das Abas */
-.tab-content {
-    padding: 30px;
-    text-align: left;
-    background-color: #fff; 
-    border-radius: 0 0 10px 10px; 
-    min-height: 450px;
-}
-
-.tab-title {
-    font-family: 'Playfair Display', serif;
-    color: #D32F51;
-    font-size: 2em;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
+.heart-button p {
+    color: white;
+    margin-top: 20px;
+    font-size: 1.2em;
     text-align: center;
 }
 
-/* LISTA DE PLANOS */
-.lista-planos {
-    list-style: none; 
-    padding-left: 0;
-    font-size: 1.1em;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.lista-planos li {
-    padding: 15px 0 15px 2em; 
+/* CORAÇÃO PERFEITO E CENTRALIZADO */
+.heart-icon{
+    width: 100px; /* Base quadrada */
+    height: 100px;
+    background: white;
+    transform: rotate(-45deg); /* Gira para formar a ponta */
     position: relative;
-    border-bottom: 1px dashed #f0f0f0; 
-    transition: background-color 0.2s;
-    line-height: 1.4;
+    animation:pulse 1.5s infinite;
 }
 
-.lista-planos li:last-child {
-    border-bottom: none;
-}
-
-.lista-planos li:hover {
-    background-color: #fffafa;
-}
-
-.coracao {
-    color: #D32F51;
-    font-size: 1.4em;
+.heart-icon::before,
+.heart-icon::after{
+    content: "";
+    width: 100px; /* Mesmo tamanho da base */
+    height: 100px;
+    background: white;
+    border-radius: 50%; /* Transforma em círculo */
     position: absolute;
+}
+
+/* Posiciona os círculos para formar as curvas superiores */
+.heart-icon::before{
+    top: -50px; /* Metade do tamanho para subir até o centro */
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    line-height: 1;
+}
+.heart-icon::after{
+    left: 50px; /* Metade do tamanho para ir para a direita */
+    top: 0;
 }
 
-
-/* ------------------------------------------- */
-/* GALERIA (Ajustada para mais fotos) */
-/* ------------------------------------------- */
-
-.gallery {
-    display: grid;
-    /* Colunas ajustáveis (pelo menos 180px, máx 4 colunas em telas grandes) */
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding-top: 10px; 
+@keyframes pulse{
+    0%{transform:rotate(-45deg) scale(1);}
+    50%{transform:rotate(-45deg) scale(1.1);}
+    100%{transform:rotate(-45deg) scale(1);}
+}
+/* FIM DO BLOCO CORRIGIDO */
+.site-container{
+    display:none;
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding-bottom:40px;
 }
 
-.gallery img {
-    width: 100%;
-    height: 250px; /* Altura fixa para uniformidade */
-    object-fit: cover; 
-    object-position: center center; 
-    border-radius: 8px;
-    border: 3px solid #fce4ec;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer; 
+.romantic-header{
+    background:#D32F51;
+    color:white;
+    padding:40px 20px;
+}
+
+/* PRIORIZAÇÃO DOS CONTADORES */
+.destaque-area{
+    padding:30px;
+    display:grid;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.namoro-principal{
+    /* Destaque para o contador de namoro */
+    border:4px solid #D32F51;
+    order: 1; /* Garante que ele venha primeiro no grid/flex */
+}
+
+.conversa-secundaria {
+    /* Estilo secundário para o contador de conversa */
+    border:2px solid #ccc;
+    order: 2; /* Garante que ele venha em segundo */
+}
+
+.contador-grid{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.contador-item{
+    background:#ffe8e8;
+    padding:15px;
+    border-radius:10px;
+    width:45%; /* Padrão para telas menores (2 por linha) */
+    flex-grow: 1;
+    min-width: 120px;
+}
+
+.numero{
+    font-size:2.5em;
+    color:#D32F51;
+    display:block;
+    font-weight: 700;
+}
+
+.unidade {
+    display:block;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.data-inicio {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.mensagem-footer {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* ABAS */
+.tabs-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-link{
+    flex:1;
+    padding:12px;
+    border:none;
+    cursor:pointer;
+    background:#fff5f5;
+    transition: background 0.3s ease;
+    font-size: 0.9em;
+}
+
+.tab-link:hover:not(.active) {
+    background: #fcebeb;
+}
+
+.tab-link.active{
+    background:white;
+    border-bottom:3px solid #D32F51;
+    font-weight: 600;
+}
+
+.tab-content{
+    padding:20px;
+}
+
+.tab-title {
+    color: #D32F51;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
 .gallery img:hover {
     transform: scale(1.03);
-    box-shadow: 0 12px 25px rgba(211, 47, 81, 0.4); 
-    border-color: #D32F51;
 }
 
-/* ------------------------------------------- */
-/* MODAL (Adicionado para funcionar com o JS) */
-/* ------------------------------------------- */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    padding-top: 60px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.9); 
+.lista-planos {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    max-height: 90vh; 
-    object-fit: contain; 
-}
-
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
+.lista-planos li {
     padding: 10px 0;
-    height: 150px;
+    border-bottom: 1px dashed #f1b3bc;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
-.close {
+.plano-item:last-child {
+    border-bottom: none;
+}
+
+.coracao {
+    color: #D32F51;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    z-index: 101;
+}
+
+.modal-content{
+    margin:auto;
+    display:block;
+    max-width:90%;
+    max-height:90%;
+    width: auto;
+    height: auto;
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
+.close{
+    color:white;
+    font-size:40px;
+    position:absolute;
+    top:20px;
+    right:30px;
+    transition: color 0.3s;
     cursor: pointer;
 }
 
+.close:hover {
+    color: #ff8c9a;
+}
 
-/* ------------------------------------------- */
-/* RESPONSIVIDADE */
-/* ------------------------------------------- */
-@media (max-width: 768px) {
-    .site-container {
-        margin: 0;
-        border-radius: 0;
-    }
-    .romantic-header h1 {
-        font-size: 2.8em;
-    }
-    .destaque-area {
-        grid-template-columns: 1fr; /* Coluna única no mobile */
-        padding: 20px 15px;
-    }
-    .foto-destaque {
-        height: 300px;
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-    .contador-grid {
-        gap: 10px;
-        flex-wrap: wrap;
-    }
+/* RESPONSIVIDADE PARA CELULAR (Mobile First) */
+@media (min-width: 600px) {
+    /* Em telas maiores, 4 itens por linha para o contador */
     .contador-item {
-        flex: 1 1 calc(50% - 10px); /* 2 colunas no contador */
+        width: 22%;
     }
-    .tabs-buttons {
-        flex-wrap: wrap;
-    }
-    .tab-link {
-        flex: 1 1 50%;
-        max-width: 50%;
-        font-size: 0.9em;
-    }
+    
+    /* Em telas maiores, 3 itens por linha para a galeria */
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Fotos menores no mobile */
-        gap: 15px;
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     }
-    .gallery img {
-        height: 200px;
+
+    /* Em telas maiores, os contadores ficam lado a lado */
+    .destaque-area{
+        grid-template-columns: 2fr 1fr; /* Namoro (2/3) e Conversa (1/3) */
+    }
+    
+    .namoro-principal {
+        order: 1; 
+    }
+    
+    .conversa-secundaria {
+        order: 2;
+        padding: 15px; /* Deixa o cartão menor */
+    }
+    
+    .conversa-secundaria .numero {
+        font-size: 1.8em;
+    }
+    
+    .conversa-secundaria .data-inicio, 
+    .conversa-secundaria .mensagem-footer {
+        font-size: 0.8em;
+    }
+    
+    .conversa-secundaria .contador-item {
+        padding: 10px;
+    }
+
+    .tabs-buttons {
+        flex-wrap: nowrap; /* Não quebrar as abas em telas maiores */
     }
 }
